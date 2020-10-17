@@ -8,13 +8,13 @@ This tool is used to crop one big pictures into many small pictures.
 For example, we have a 4000x4000 picture, crop it into many 256x256 pictures.
 Save these images.
 """
-IMAGE_PATH = '../dataset/original_image/test_4.jpg'
+IMAGE_PATH = '../dataset/original_image/test_1_Perth.png'
 IMAGE_SAVING_PATH = '../dataset/new_training_image/'
-LABEL_PATH = '../dataset/original_label/training_6_fairfield_2.png'
+LABEL_PATH = '../dataset/original_label/testing_1_Perth.png'
 LABEL_SAVING_PATH = '../dataset/new_training_label/'
 CROP_WIDTH = 256
 CROP_HEIGHT = 256
-SAVING_INDEX = 1
+SAVING_INDEX = 351
 
 
 def crop_image(img):
@@ -48,7 +48,7 @@ def save_images(img_list, saving_path):
     """
     Crop image into CROP_WIDTH by CROP_WIDTH picture.
     Args:
-        img_list: PIL.Image.Image list.
+        img_list: PIL.image.image list.
         saving_path: String, saving path.
     Return:
         None.

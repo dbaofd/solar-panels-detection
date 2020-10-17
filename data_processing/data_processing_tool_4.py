@@ -17,7 +17,7 @@ def get_sub_images(image):
         image: numpy array.
     Return:
         image_list: numpy array, sub images list.
-        gray_rgb_img: PIL.Image, gray scale rgb image of the giant image.
+        gray_rgb_img: PIL.image, gray scale rgb image of the giant image.
         width: padded image width.
         height: padded image height.
     Raises:
@@ -49,7 +49,7 @@ def pad_image(image_array):
     Args:
         image_array: numpy array, input image.
     Returns:
-        img: PIL.Image, padded image.
+        img: PIL.image, padded image.
         image_array: numpy array, padded image
     Raises:
         Can only convert float32 image into unit8 image.
@@ -100,11 +100,11 @@ def restore_image_size(image, original_width, original_height):
     """
     Restore padded image into its original size.
     Args:
-        image: PIL.Image, input image.
+        image: PIL.image, input image.
         original_width: integer, original width.
         original_height: integer, original height.
     Return:
-        restored_image: PIL.Image.
+        restored_image: PIL.image.
     Raises:
         None.
     """
@@ -121,7 +121,7 @@ def get_gray_rgb_img(image):
     Arg:
         image: numpy array, input image.
     Return:
-        gray_rgb_img: PIL.Image.
+        gray_rgb_img: PIL.image.
     Raises:
         None.
     """
@@ -140,7 +140,7 @@ def get_full_predicted_label(padded_height, padded_width, sub_predicted_label_li
         padded_width: integer, width of giant predicted label.
         sub_predicted_label_list: numpy array, list of sub predicted labels.
     Return:
-        full_label: PIL.Image, the giant predicted label.
+        full_label: PIL.image, the giant predicted label.
     Raises:
         None.
     """
@@ -174,12 +174,12 @@ def add_transparent_mask(padded_img, full_label, original_width, original_height
     """
     Cover full predicted label as transparent mask to original gray scale rgb image.
     Args:
-        padded_img: PIL.Image, padded gray scale rgb image.
-        full_label: PIL.Image, full predicted label.
+        padded_img: PIL.image, padded gray scale rgb image.
+        full_label: PIL.image, full predicted label.
         original_width: integer, original image width.
         original_height: integer, original image width.
     Return:
-        img: PIL.Image, original image with full predicted label mask.
+        img: PIL.image, original image with full predicted label mask.
     Raises:
         None.
     """

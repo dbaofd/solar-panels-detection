@@ -10,7 +10,7 @@ For example, there are 30 300x300 pictures, using this tool can
 efficiently crop these pictures into 256x256 pictures.
 """
 READING_PATH = '../dataset/fairfield_1_image/'
-SAVING_PATH = 'dataset/Testing/Image/saving_folder/'
+SAVING_PATH = 'dataset/test/image/saving_folder/'
 CROP_WIDTH = 256
 CROP_HEIGHT = 256
 
@@ -25,7 +25,7 @@ def crop_image(img):
     Raises:
         Wrong type exception: if img is not float32 format, bug may occur.
     """
-    # When using Image.fromarray(image), need to make sure image is unit8 format
+    # When using image.fromarray(image), need to make sure image is unit8 format
     # convert image from float32 to unit8
     if str(img.dtype) != 'uint8':
         img = (img * 255).astype(np.uint8)
@@ -44,7 +44,7 @@ def save_image(img, name):
     """
     Save CROP_WIDTH by CROP_WIDTH picture.
     Args:
-        img: PIL.Image.Image format.
+        img: PIL.image.image format.
         name: original name of file.
     Return:
         None.
@@ -61,5 +61,3 @@ if __name__ == '__main__':
         image = crop_image(image)
         save_image(image, file)
     print("Save successfully!")
-
-# https://github.com/advaitsave/Multiclass-Semantic-Segmentation-CamVid/blob/master/Multiclass_Semantic_Segmentation_using_VGG_16_SegNet.ipynb
