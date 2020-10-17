@@ -8,10 +8,21 @@ IMAGE_SAVING_PATH = '../dataset/new_training_image/'
 LABEL_PATH = '../dataset/original_label/testing_1_Perth.png'
 LABEL_SAVING_PATH = '../dataset/new_training_label/'
 SAVING_INDEX = 1
-CROP_NUM=1000
+CROP_NUM=100
 
 
 def random_crop(img, mask):
+    """
+    Randomly, crop image and mask
+    Args:
+        img: plt image list.
+        mask: mask list.
+    Return:
+        img_list: cropped image list.
+        label_list: cropped mask list.
+    Raises:
+        None.
+    """
     if str(img.dtype) != 'uint8':
         img = (img * 255).astype(np.uint8)
     if str(mask.dtype) != 'uint8':
@@ -33,10 +44,12 @@ def random_crop(img, mask):
 
 def save_images(img_list, img_saving_path, label_list, label_saving_path):
     """
-    Crop image into CROP_WIDTH by CROP_WIDTH picture.
+    Save cropped images and masks.
     Args:
-        img_list: PIL.image.image list.
-        saving_path: String, saving path.
+        img_list: list, cropped images.
+        img_saving_path: string, image saving path.
+        label_list: list, cropped masks.
+        label_saving_path: string, mask saving path.
     Return:
         None.
     Raises:

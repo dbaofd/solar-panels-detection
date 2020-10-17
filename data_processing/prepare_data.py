@@ -3,13 +3,15 @@ import numpy as np
 import tensorflow as tf
 import os
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import sys
+sys.path.append("..")
 
 TRAIN_IMAGE_PATH = 'data_set/training/image/'
 TRAIN_LABEL_PATH = 'data_set/training/label/'
 VALIDATION_IMAGE_PATH = 'data_set/validation/image/'
 VALIDATION_LABEL_PATH = 'data_set/validation/label/'
-TEST_IMAGE_PATH = 'data_set/images_without_label/image/'
-TEST_LABEL_PATH = 'data_set/images_without_label/label/'
+TEST_IMAGE_PATH = 'data_set/test/image/'
+TEST_LABEL_PATH = 'data_set/test/label/'
 IMAGES_WITHOUT_LABEL_PATH = 'data_set/images_without_label/'
 id2code = {0: (0, 0, 0), 1: (128, 0, 0)}
 

@@ -72,7 +72,10 @@ def generate_prediction_image(model_type, model_name, test_image_name, saving_im
     original_width = image.shape[1]
     original_height = image.shape[0]
     sub_imgs, padded_img, padded_width, padded_height = data_processing_tool_4.get_sub_images(image)
-    # Bulid model and load weight
+    # Bulid model and load weight.
+    # The reason to set model's batch_size to 1 is that only this enables data generator to have a dynamic batch_size.
+    # For example, if the model's batch_size is 16, then the batch_size of data generator must be 16.
+    # But if the model's batch_size is 1, then the batch_size of data generator can be 1,2,8,16 whatever.
     if model_type == 1:  # fast scnn
         model = fast_scnn.fast_scnn_v2(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2, model_summary=False)
         model.load_weights(MODEL_PATH + model_name)
