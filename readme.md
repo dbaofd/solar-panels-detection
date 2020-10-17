@@ -8,7 +8,7 @@
 - Fast SCNN (https://github.com/kshitizrimal/Fast-SCNN/blob/master/TF_2_0_Fast_SCNN.ipynb)
 ## Dataset
 - Dataset are made with high-resolution satellite imagery from Nearmap (https://www.nearmap.com/au/en)
-- Labelme (https://github.com/wkentaro/labelme) is used as the tool to label the data.
+- Labelme (https://github.com/wkentaro/labelme) is used as the tool to label the images.
 - Training dataset contains 3936 256x256 rgb images and labels which are collected
 from Capalaba, Springfield, New Farm, Fairfield, Sunnybank Hills in Brisbane, Australia.
 - Validation dataset contains 1344 images and labels which are collected from
