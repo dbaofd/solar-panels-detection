@@ -4,8 +4,9 @@ import sys
 import os
 
 print(os.getcwd())
-import segnet
-import fast_scnn
+from model_list import segnet_1
+from model_list import segnet_3
+from model_list import fast_scnn_2
 
 sys.path.append("..")
 from data_processing import prepare_data, data_processing_tool_4
@@ -72,20 +73,22 @@ def generate_prediction_image(model_type, model_name, test_image_name, saving_im
     original_width = image.shape[1]
     original_height = image.shape[0]
     sub_imgs, padded_img, padded_width, padded_height = data_processing_tool_4.get_sub_images(image)
-    # Bulid model and load weight.
+    # Bulid model and load weight
     # The reason to set model's batch_size to 1 is that only this enables data generator to have a dynamic batch_size.
     # For example, if the model's batch_size is 16, then the batch_size of data generator must be 16.
     # But if the model's batch_size is 1, then the batch_size of data generator can be 1,2,8,16 whatever.
     if model_type == 1:  # fast scnn
-        model = fast_scnn.fast_scnn_v2(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2, model_summary=False)
+        model = fast_scnn_2.fast_scnn_v2(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2, model_summary=False)
         model.load_weights(MODEL_PATH + model_name)
     elif model_type == 2:  # segnet with resnet
-        model = segnet.segnet_resnet_v2(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2, model_summary=False)
+        model = segnet_3.segnet_resnet_v2(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2, model_summary=False)
         model.load_weights(MODEL_PATH + model_name)
     elif model_type == 3:  # segnet with 4 encoders and decoders
-        model = segnet.segnet_4_encoder_decoder(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2,
-                                                model_summary=False)
+        model = segnet_1.segnet_4_encoder_decoder(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2,
+                                                  model_summary=False)
         model.load_weights(MODEL_PATH + model_name)
+    else:
+        raise ModelTypeError
     sub_predicted_label_list = get_predicted_label_list(sub_imgs, model)
     full_label = data_processing_tool_4.get_full_predicted_label(padded_height, padded_width, sub_predicted_label_list)
     full_label_with_mask = data_processing_tool_4.add_transparent_mask(padded_img, full_label, original_width,
@@ -94,11 +97,16 @@ def generate_prediction_image(model_type, model_name, test_image_name, saving_im
     print("Save successfully!")
 
 
+class ModelTypeError(Exception):
+    """Raise this error when the model type is invalid."""
+    pass
+
+
 if __name__ == '__main__':
     # choose one of them.
     # model_type=1, model_name=TRAINED_MODELS[0]
     # model_type=2, model_name=TRAINED_MODELS[1]
     # model_type=3, model_name=TRAINED_MODELS[2]
     # model_type=3, model_name=TRAINED_MODELS[3]
-    generate_prediction_image(model_type=1, model_name=TRAINED_MODELS[0],
-                              test_image_name=IMAGE_LIST[4], saving_image_name="a5")
+    generate_prediction_image(model_type=3, model_name=TRAINED_MODELS[2],
+                              test_image_name=IMAGE_LIST[4], saving_image_name="ab3")

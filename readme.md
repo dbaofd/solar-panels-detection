@@ -3,9 +3,6 @@
 - SegNet (https://ieeexplore.ieee.org/abstract/document/7803544)
 - Fast SCNN (https://arxiv.org/pdf/1902.04502.pdf)
 - ResNet (https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-## Code Base
-- SegNet (https://github.com/advaitsave/Multiclass-Semantic-Segmentation-CamVid/blob/master/Multiclass_Semantic_Segmentation_using_VGG_16_SegNet.ipynb)
-- Fast SCNN (https://github.com/kshitizrimal/Fast-SCNN/blob/master/TF_2_0_Fast_SCNN.ipynb)
 ## Dataset
 - Dataset are made with high-resolution satellite imagery from Nearmap (https://www.nearmap.com/au/en)
 - Labelme (https://github.com/wkentaro/labelme) is used as the tool to label the images.
