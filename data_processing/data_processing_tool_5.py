@@ -5,7 +5,7 @@ import numpy as np
 
 IMAGE_PATH = '../dataset/original_image/test_1_Perth.png'
 IMAGE_SAVING_PATH = '../dataset/new_training_image/'
-LABEL_PATH = '../dataset/original_label/testing_1_Perth.png'
+LABEL_PATH = '../dataset/original_label/test_1_Perth.png'
 LABEL_SAVING_PATH = '../dataset/new_training_label/'
 SAVING_INDEX = 1
 CROP_NUM=100
