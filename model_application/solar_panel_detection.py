@@ -1,12 +1,14 @@
 import matplotlib.pyplot as plt
 import math
 import sys
+import datetime
 import os
 
 print(os.getcwd())
 from model_list import segnet_1
 from model_list import segnet_3
 from model_list import fast_scnn_2
+from model_list import segnet_0
 
 sys.path.append("..")
 from data_processing import prepare_data, data_processing_tool_4
@@ -19,7 +21,8 @@ IMAGE_LIST = ["EPSG3857_Date20170224_Lat-28.17291_Lon153.541585_Mpp0.149.jpg",
 TRAINED_MODELS = ["fast_scnn_2.h5",  # model type 1
                   "seg_resnet_2.h5",  # model type 2
                   "segnet_1.h5",  # model type 3
-                  "segnet_2.h5"]  # model type 3
+                  "segnet_2.h5",  # model type 3
+                  "segnet_original.h5"]  # model type 4
 TEST_IMAGE_PATH = "test_images/"
 MODEL_PATH = "../trained_models/"
 SAVING_PATH = "prediction_images/"
@@ -87,6 +90,9 @@ def generate_prediction_image(model_type, model_name, test_image_name, saving_im
         model = segnet_1.segnet_4_encoder_decoder(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2,
                                                   model_summary=False)
         model.load_weights(MODEL_PATH + model_name)
+    elif model_type == 4:#original segnet
+        model = segnet_0.segnet_original(input_shape=sub_imgs[0].shape, batch_size=1, n_labels=2, model_summary=False)
+        model.load_weights(MODEL_PATH+model_name)
     else:
         raise ModelTypeError
     sub_predicted_label_list = get_predicted_label_list(sub_imgs, model)
@@ -108,5 +114,10 @@ if __name__ == '__main__':
     # model_type=2, model_name=TRAINED_MODELS[1]
     # model_type=3, model_name=TRAINED_MODELS[2]
     # model_type=3, model_name=TRAINED_MODELS[3]
-    generate_prediction_image(model_type=3, model_name=TRAINED_MODELS[2],
-                              test_image_name=IMAGE_LIST[4], saving_image_name="ab3")
+    # model_type=4, model_name=TRAINED_MODELS[4]
+    start_time = datetime.datetime.now()
+    generate_prediction_image(model_type=4, model_name=TRAINED_MODELS[4],
+                              test_image_name=IMAGE_LIST[4], saving_image_name="ab90")
+    end_time = datetime.datetime.now()
+    execution_time = (end_time - start_time).seconds
+    print("Execution time: ", execution_time, "s")
