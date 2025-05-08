@@ -116,8 +116,8 @@ if __name__ == '__main__':
     # model_type=3, model_name=TRAINED_MODELS[3]
     # model_type=4, model_name=TRAINED_MODELS[4]
     start_time = datetime.datetime.now()
-    generate_prediction_image(model_type=4, model_name=TRAINED_MODELS[4],
-                              test_image_name=IMAGE_LIST[4], saving_image_name="ab90")
+    generate_prediction_image(model_type=1, model_name=TRAINED_MODELS[4],
+                              test_image_name=IMAGE_LIST[4], saving_image_name="ab9000")
     end_time = datetime.datetime.now()
     execution_time = (end_time - start_time).seconds
     print("Execution time: ", execution_time, "s")

@@ -4,7 +4,7 @@ from PIL import Image
 
 """
 Summary of this file here.
-This tool is used to crop one big pictures into many small pictures.
+This tool is used to crop one big picture into many small pictures.
 For example, we have a 4000x4000 picture, crop it into many 256x256 pictures.
 Save these images.
 """

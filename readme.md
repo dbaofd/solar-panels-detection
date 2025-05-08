@@ -30,3 +30,4 @@ Springfield and Sunnybank Hills.
 |Fast SCNN 1|0.72767824|
 |Fast SCNN 2|0.82243156|
 
+## How to run?
