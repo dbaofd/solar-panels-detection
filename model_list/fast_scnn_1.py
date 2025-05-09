@@ -105,7 +105,7 @@ def fast_scnn_v1(input_shape, batch_size, n_labels, model_summary=False):
     classifier = tf.keras.activations.softmax(classifier)
     # Model Compilation
     fast_scnn = tf.keras.Model(inputs=input_layer, outputs=classifier, name='Fast_SCNN')
-    fast_scnn.compile(optimizer=optimizers.Adam(lr=0.001), loss="categorical_crossentropy", metrics=[iou, 'accuracy'])
+    fast_scnn.compile(optimizer=optimizers.Adam(learning_rate=0.001), loss="categorical_crossentropy", metrics=[iou, 'accuracy'])
     if model_summary is True:
         fast_scnn.summary()
 

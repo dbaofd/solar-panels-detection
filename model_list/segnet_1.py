@@ -111,7 +111,7 @@ def segnet_4_encoder_decoder(input_shape, batch_size, n_labels=2, kernel=3, pool
     print("Build decoder done..")
 
     model = Model(inputs=inputs, outputs=out, name="SegNet")
-    model.compile(optimizer=optimizers.Adam(lr=1e-3), loss='categorical_crossentropy', metrics=[iou, 'accuracy'])
+    model.compile(optimizer=optimizers.Adam(learning_rate=1e-3), loss='categorical_crossentropy', metrics=[iou, 'accuracy'])
 
     if model_summary is True:
         model.summary()

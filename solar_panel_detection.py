@@ -16,8 +16,7 @@ from data_processing import prepare_data, data_processing_tool_4
 IMAGE_LIST = ["EPSG3857_Date20170224_Lat-28.17291_Lon153.541585_Mpp0.149.jpg",
               "EPSG3857_Date20170228_Lat-31.936911_Lon115.814916_Mpp0.149.jpg",
               "EPSG3857_Date20200321_Lat-27.496309_Lon153.012468_Mpp0.149.jpg",
-              "EPSG3857_Date20200714_Lat-27.367418_Lon153.054237_Mpp0.149.jpg",
-              "47.png"]
+              "EPSG3857_Date20200714_Lat-27.367418_Lon153.054237_Mpp0.149.jpg",]
 TRAINED_MODELS = ["fast_scnn_2.h5",  # model type 1
                   "seg_resnet_2.h5",  # model type 2
                   "segnet_1.h5",  # model type 3
@@ -117,7 +116,7 @@ if __name__ == '__main__':
     # model_type=4, model_name=TRAINED_MODELS[4]
     start_time = datetime.datetime.now()
     generate_prediction_image(model_type=1, model_name=TRAINED_MODELS[0],
-                              test_image_name=IMAGE_LIST[4], saving_image_name="ab9000")
+                              test_image_name=IMAGE_LIST[2], saving_image_name="prediction_img")
     end_time = datetime.datetime.now()
     execution_time = (end_time - start_time).seconds
     print("Execution time: ", execution_time, "s")

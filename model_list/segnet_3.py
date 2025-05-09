@@ -150,7 +150,7 @@ def segnet_resnet_v2(input_shape, batch_size, n_labels=2, kernel=3, pool_size=(2
     print("Build decoder done..")
 
     model = Model(inputs=inputs, outputs=out, name="SegNet")
-    model.compile(optimizer=optimizers.Adam(lr=1e-3), loss='categorical_crossentropy', metrics=[iou, 'accuracy'])
+    model.compile(optimizer=optimizers.Adam(learning_rate=1e-3), loss='categorical_crossentropy', metrics=[iou, 'accuracy'])
 
     if model_summary is True:
         model.summary()
