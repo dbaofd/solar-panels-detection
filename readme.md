@@ -1,5 +1,16 @@
 # Automatic Detection of Solar Panels in High-Resolution Aerial Imagery
 ![profile](/imgs/cover.png)
+## :book: Contents
+<!--ts-->
+   * [Introduction](#running-introduction)
+   * [Requirements](#zap-requirements)
+   * [Involved Models](#bread-involved-models-)
+   * [Dataset](#dog-dataset)
+   * [Trained Models](#cat-trained-models-)
+   * [Evaluations](#koala-evaluations)
+   * [Run Solar Panel Detection](#run-solar-panel-detection)
+   * [Demo](#demo)
+<!--te-->
 ## :running: Introduction
 The global shift toward renewable energy has led to a rapid increase in the deployment of solar panels across residential, commercial, and industrial areas. 
 Accurately mapping the location and extent of these installations is crucial for energy infrastructure planning, policy-making, and environmental monitoring.
@@ -53,5 +64,15 @@ Place these images inside "test_images" folder. A test image example can be down
 - Modify "solar_panel_detection.py". In line 118, modify "model_type" (segmentation model), "model_name" (model weights name), "test_image_name", and "saving_image_name" .
 - Run the following command to perform solar panel detection on the given test image.
 ```commandline
-python solar_panel_detection 
+python solar_panel_detection.py 
 ```
+
+## Demo
+Demo 1
+<div>
+  <img width="100%" alt="demo 1" src="imgs/demo_1.gif">
+</div>
+Demo 2
+<div>
+  <img width="100%" alt="demo 2" src="imgs/demo_2.gif">
+</div>
