@@ -1,9 +1,17 @@
-# Automatic Detection of Solar Panels in High-Resolution Aerial Imagery.
+# Automatic Detection of Solar Panels in High-Resolution Aerial Imagery
 ## Introduction
 The global shift toward renewable energy has led to a rapid increase in the deployment of solar panels across residential, commercial, and industrial areas. 
 Accurately mapping the location and extent of these installations is crucial for energy infrastructure planning, policy-making, and environmental monitoring.
 With the growing availability of high-resolution aerial imagery and advances in computer vision, automated detection methods offer a scalable and cost-effective 
 alternative. This project aims to develop a system that automatically detects solar panels in aerial images using state-of-the-art computer vision techniques.
+## Requirements
+```commandline
+tensorflow
+opencv
+matplotlib
+abc
+
+```
 ## Involved Models 
 - [SegNet](https://ieeexplore.ieee.org/abstract/document/7803544)
 - [Fast SCNN](https://arxiv.org/pdf/1902.04502.pdf)
